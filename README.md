@@ -1,6 +1,6 @@
-# Snowdog Front-end Recruitment test
+# Marketer Front-end Assignment
 
-* Please use real Github accounts, we want to check your contributions history since we use, create and contribute to open source.
+* Please use real Github accounts, as we check for contribution history. However, if you want to stay anonymous, please send patch instead.
 * We are not answering any questions about this test. Everyone work with the same set of information, to let us fairly judge your work.
 * The test is designed in a way, that can confuse you or seems weird, because we want to test you in a way worse environment than you will work on a daily basis. It's also not a representation of the tech stack we are using in real projects.
 
