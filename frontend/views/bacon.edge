@@ -1,8 +1,20 @@
 @layout('layouts/main')
 @set('title', 'Bacon factory')
 
+@section('styles')
+  @super
+  <link rel="stylesheet" href="{{ asset('assets/bacon.css') }}">
+@end
+
 @section('body')
-  @!component('snowdog/bacon', {
-    img: '/images/bacon.jpg'
-  })
+  <div id="bacon-container">
+    @!component('snowdog/bacon', {
+      img: '/images/bacon.jpg',
+    })
+  </div>
+@end
+
+@section('scripts')
+  @super
+  <script src="{{ asset('assets/bacon.js') }}"></script>
 @end

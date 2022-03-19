@@ -6,10 +6,12 @@
     <title>{{ title }}</title>
     @entryPointStyles('app')
     @entryPointScripts('app')
+    @!section('styles')
   </head>
   <body>
     <main>
       @!section('body')
     </main>
+    @!section('scripts')
   </body>
 </html>
