@@ -8,6 +8,9 @@
     "dev": "node ace serve --watch",
     "lint": "eslint . --ext .js,.ts"
   },
+  "browserslist": [
+    "defaults"
+  ],
   "devDependencies": {
     "@adonisjs/assembler": "^5.3.0",
     "@symfony/webpack-encore": "^1.4.0",
@@ -15,6 +18,8 @@
     "eslint": "^7.27.0",
     "eslint-plugin-adonis": "^1.3.1",
     "pino-pretty": "^5.0.2",
+    "postcss-loader": "^5.3.0",
+    "postcss-nested": "^5.0.6",
     "ts-loader": "^9.2.8",
     "typescript": "~4.2",
     "youch": "^2.2.2",
