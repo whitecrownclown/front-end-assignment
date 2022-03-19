@@ -45,7 +45,7 @@ Encore.setPublicPath('/assets')
 | entrypoints.
 |
 */
-Encore.addEntry('app', './frontend/assets/js/app.js')
+Encore.addEntry('app', './frontend/assets/js/app.ts')
 Encore.addEntry('bacon', './frontend/assets/js/bacon.ts')
 
 /*

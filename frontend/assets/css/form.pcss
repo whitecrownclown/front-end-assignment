@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+form {
+  counter-reset: legend;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+
+  color: #000;
+
+  width: 600px;
+  padding: 1em;
+  display: grid;
+  row-gap: 2em;
+
+  fieldset {
+    display: grid;
+    gap: 1.25em .5em;
+
+    border: none;
+
+    &:first-child {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-auto-flow: row;
+      grid-template-areas:
+        "first-name last-name"
+        "email email"
+        "country postal-code"
+        "phone-number phone-number";
+    }
+
+    &:nth-child(2) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-auto-flow: row;
+      grid-template-areas:
+        "credit-card-number credit-card-number"
+        "security-code expiration-date";
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 1em;
+
+      span {
+        position: absolute;
+        z-index: 1;
+
+        padding-top: .5em;
+
+        color: #515356;
+        text-indent: 1em;
+      }
+    }
+
+    input, select {
+      height: 46px;
+      width: 100%;
+      padding: 1em 0 0;
+
+      font-size: 1.25em;
+
+      border: none;
+      border-radius: 4px;
+      filter: drop-shadow(0 2px 0px #D9D9D9);
+    }
+
+    select {
+      text-indent: 0.5em;
+    }
+
+    input {
+      text-indent: .75em;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button,
+      &[type="number"] {
+        -webkit-appearance: none;
+        -moz-appearance: textfield;
+      }
+
+      &:focus {
+        outline: 2px solid #000;
+      }
+
+      &::placeholder {
+        color: #9B9B9B;
+      }
+    }
+
+    &:nth-child(2) legend::after {
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(125%, 100%);
+
+      display: inline-block;
+
+      content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="%23484848" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M8 10V8.002A4.004 4.004 0 0 1 12 4a4 4 0 0 1 4 4.002V10a2 2 0 0 1 2 2v6c0 1.105-.902 2-2.009 2H8.01A2 2 0 0 1 6 18v-6c0-1.102.897-1.995 2-2zm2 0h4V8.002A2.001 2.001 0 0 0 12 6c-1.102 0-2 .898-2 2.002V10zm2 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg>')
+    }
+
+    & legend {
+      counter-increment: legend;
+      font-weight: bold;
+      padding: 2em 0;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        transform: translate(-150%, -50%);
+
+        content: counter(legend);
+
+        display: inline-flex;
+        width: 1.5em;
+        height: 1.5em;
+
+        justify-content: center;
+        align-items: center;
+
+        background: #000;
+        color: #fff;
+        border-radius: 50%;
+
+      }
+    }
+  }
+
+  button[type="submit"] {
+    height: 3em;
+    width: 100%;
+    border: none;
+    -webkit-appearance: none;
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    margin: 1em 0;
+    padding: 1em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #6CD400;
+    color: #fff;
+    font-weight: bold;
+    filter: drop-shadow(0 2px 0px #5EB802);
+
+    &::before {
+      display: block;
+      position: relative;
+      width: 14px;
+      height: 14px;
+      margin-right: .5em;
+      content: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" fill="%23fff" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><path id="XMLID_4_" d="M415.2,405c-25.5,0-45.9,17.8-51.8,40.8H196.1c-2.5-13.6-10.2-24.6-20.4-32.3l21.2-66.2h263.2L512,118.9   l-416.1-56L62.8,40.8l1.7-7.6c0-17.8-14.4-32.3-32.3-32.3S0,15.3,0,33.1s14.4,32.3,32.3,32.3l5.9-1.7L77.3,90l65.4,256.4h19.5   l-17,55.2h-1.7c-30.6,0-54.3,24.6-54.3,55.2s24.6,54.3,54.3,54.3c22.1,0,41.6-13.6,50.1-33.1h173.2c7.6,19.5,27.2,33.1,49.2,33.1   c29.7,0,53.5-23.8,53.5-53.5S444.9,405,415.2,405z"/></svg>')
+    }
+  }
+}
+
+#security-code {
+  grid-area: security-code;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    display: block;
+    width: 18px;
+    height: 18px;
+
+    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23CCCCCC" x="0px" y="0px" viewBox="0 0 29.536 29.536" style="enable-background:new 0 0 29.536 29.536;" xml:space="preserve"> <g> <path d="M14.768,0C6.611,0,0,6.609,0,14.768c0,8.155,6.611,14.767,14.768,14.767s14.768-6.612,14.768-14.767   C29.535,6.609,22.924,0,14.768,0z M14.768,27.126c-6.828,0-12.361-5.532-12.361-12.359c0-6.828,5.533-12.362,12.361-12.362   c6.826,0,12.359,5.535,12.359,12.362C27.127,21.594,21.594,27.126,14.768,27.126z"/> <path d="M14.385,19.337c-1.338,0-2.289,0.951-2.289,2.34c0,1.336,0.926,2.339,2.289,2.339c1.414,0,2.314-1.003,2.314-2.339   C16.672,20.288,15.771,19.337,14.385,19.337z"/> <path d="M14.742,6.092c-1.824,0-3.34,0.513-4.293,1.053l0.875,2.804c0.668-0.462,1.697-0.772,2.545-0.772   c1.285,0.027,1.879,0.644,1.879,1.543c0,0.85-0.67,1.697-1.494,2.701c-1.156,1.364-1.594,2.701-1.516,4.012l0.025,0.669h3.42   v-0.463c-0.025-1.158,0.387-2.162,1.311-3.215c0.979-1.08,2.211-2.366,2.211-4.321C19.705,7.968,18.139,6.092,14.742,6.092z"/></g></svg>')
+  }
+}
+
+#credit-card-number {
+  grid-area: credit-card-number;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    right: 0;
+    top: 50%;
+
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 20px;
+
+    transform: translate(-1em, -50%);
+
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+
+    content: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="40px" clip-rule="evenodd" fill-rule="evenodd" viewBox="0 50 560 400"><path d="m286.87 176.71c-.228 17.993 16.036 28.034 28.287 34.004 12.588 6.126 16.816 10.054 16.768 15.531-.096 8.384-10.042 12.083-19.35 12.227-16.24.252-25.681-4.384-33.188-7.891l-5.849 27.373c7.531 3.472 21.476 6.499 35.938 6.631 33.944 0 56.152-16.756 56.273-42.736.132-32.971-45.607-34.797-45.295-49.535.108-4.468 4.372-9.237 13.717-10.45 4.624-.612 17.392-1.081 31.866 5.585l5.681-26.484c-7.783-2.835-17.789-5.55-30.244-5.55-31.95 0-54.423 16.984-54.604 41.295m139.44-39.013c-6.198 0-11.423 3.616-13.753 9.165l-48.49 115.777h33.92l6.75-18.654h41.451l3.916 18.654h29.896l-26.089-124.942zm4.744 33.752 9.789 46.916h-26.809zm-185.31-33.752-26.737 124.942h32.322l26.725-124.942zm-47.817 0-33.644 85.04-13.609-72.308c-1.597-8.071-7.903-12.732-14.906-12.732h-54.999l-.769 3.628c11.291 2.45 24.119 6.402 31.89 10.63 4.756 2.582 6.114 4.84 7.675 10.978l25.776 99.706h34.161l52.369-124.942z" fill="%231a1f71"/></svg>')
+  }
+}
+
+/**
+* Define grid areas for the first fieldset
+*/
+#first-name { grid-area: first-name; }
+#last-name { grid-area: last-name; }
+#email { grid-area: email; }
+#country { grid-area: country; }
+#postal-code { grid-area: postal-code; }
+#phone-number { grid-area: phone-number; }
+
+/**
+* Define grid areas for the second fieldset
+*/
+#expiration-date { grid-area: expiration-date; }

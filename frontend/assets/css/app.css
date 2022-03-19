@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
 html, body {
-  background-color: #F7F8FA;
+  background-color: #F2F2F2;
   font-family: 'Poppins', sans-serif;
   height: 100vh;
   color: #46444c;
@@ -21,6 +21,7 @@ body:before {
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -29,7 +30,7 @@ a {
 }
 
 main {
-  max-width: 620px;
+  max-width: 960px;
   margin: auto;
   height: 100vh;
   padding: 0 30px;

@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />
+
 const BACON_SELECTOR = '#bacon-container'
 
 describe('Bacon Tests', () => {

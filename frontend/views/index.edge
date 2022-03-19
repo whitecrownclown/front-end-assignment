@@ -2,7 +2,6 @@
 @set('title', 'Home page')
 
 @section('body')
-  @!component('components/welcome', {
-    source: 'resources/views/index.edge'
-  })
+  @!component('components/form')
+  @!component('components/order-summary')
 @end

@@ -1,0 +1,48 @@
+<form action="/order" method="post">
+  <fieldset>
+    <legend>PERSONAL INFORMATION</legend>
+    <label id="first-name">
+      <span>First name</span>
+    <input type="text" placeholder="Elon" />
+    </label>
+    <label id="last-name">
+      <span>Last name</span>
+      <input type="text" placeholder="Musk" />
+    </label>
+    <label id="email">
+      <span>Email</span>
+      <input type="text" placeholder="elon@spacex.com" />
+    </label>
+    <label id="country">
+      <span>Country</span>
+      <select>
+        <option value="US">United States</option>
+        <option value="RO">Romania</option>
+      </select>
+    </label>
+    <label id="postal-code">
+      <span>Postal Code</span>
+      <input type="number" placeholder="10001" />
+    </label>
+    <label id="phone-number">
+      <span>Phone Number</span>
+      <input type="number" placeholder="(212) 692-93-92" />
+    </label>
+  </fieldset>
+  <fieldset>
+    <legend>PAYMENT DETAILS</legend>
+    <label id="credit-card-number">
+      <span>Credit Card Number</span>
+      <input type="text" placeholder="0000 &ndash; 0000 &ndash; 0000 &ndash; 0000" />
+    </label>
+    <label id="security-code">
+      <span>Security code</span>
+      <input autocomplete="one-time-code" inputmode="numeric" size="3" maxlength="3" type="password" placeholder="***" />
+    </label>
+    <label id="expiration-date">
+      <span>Expiration date</span>
+      <input type="text" placeholder="MM / YY" maxlength="7" />
+    </label>
+  </fieldset>
+  <button type="submit">COMPLETE PURCHASE</button>
+</form>
