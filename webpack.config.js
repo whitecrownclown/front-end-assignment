@@ -196,7 +196,15 @@ Encore.configureDevServerOptions((options) => {
 | log warnings and errors. If you want all the logs, you can change
 | the level to "info".
 |
+
+/*
+|--------------------------------------------------------------------------
+| Enable Typescript Loader
+|--------------------------------------------------------------------------
 */
+
+Encore.enableTypeScriptLoader()
+
 const config = Encore.getWebpackConfig()
 config.infrastructureLogging = {
   level: 'warn',
