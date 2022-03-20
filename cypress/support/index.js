@@ -13,6 +13,8 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
+// Import tab plugin
+import 'cypress-plugin-tab'
 // Import commands.js using ES2015 syntax:
 import './commands'
 
