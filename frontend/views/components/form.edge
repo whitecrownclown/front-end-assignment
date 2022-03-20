@@ -3,45 +3,45 @@
     <legend>PERSONAL INFORMATION</legend>
     <label for="firstName" id="first-name">
       <span>First name</span>
-      <input required aria-required="true" name="firstName" type="text" placeholder="Elon" />
+      <input data-cy="firstName" required aria-required="true" name="firstName" type="text" placeholder="Elon" />
     </label>
     <label for="lastName" id="last-name">
       <span>Last name</span>
-      <input required aria-required="true" name="lastName" type="text" placeholder="Musk" />
+      <input data-cy="lastName" required aria-required="true" name="lastName" type="text" placeholder="Musk" />
     </label>
     <label for="email" id="email">
       <span>Email</span>
-      <input required aria-required="true" name="email" type="email" placeholder="elon@spacex.com" />
+      <input data-cy="email" required aria-required="true" name="email" type="email" placeholder="elon@spacex.com" />
     </label>
     <label for="country" id="country">
       <span>Country</span>
-      <select name="country">
+      <select data-cy="country" name="country">
         <option value="US">United States</option>
         <option value="RO">Romania</option>
       </select>
     </label>
     <label for="postalCode" id="postal-code">
       <span>Postal Code</span>
-      <input required aria-required="true" name="postalCode" type="text" placeholder="10001" minlength="5" maxlength="5" />
+      <input data-cy="postalCode" required aria-required="true" name="postalCode" type="text" placeholder="10001" minlength="5" maxlength="5" />
     </label>
     <label for="phone" id="phone-number">
       <span>Phone Number</span>
-      <input required aria-required="true" name="phone" type="text" placeholder="(212) 692-93-92" minlength="9" maxlength="9" />
+      <input data-cy="phone" required aria-required="true" name="phone" type="text" placeholder="(212) 692-93-92" minlength="9" maxlength="9" />
     </label>
   </fieldset>
   <fieldset>
     <legend>PAYMENT DETAILS</legend>
     <label for="creditCard" id="credit-card-number">
       <span>Credit Card Number</span>
-      <input required aria-required="true" name="creditCard" type="text" placeholder="0000 &ndash; 0000 &ndash; 0000 &ndash; 0000" minlength="16" maxlength="16" />
+      <input data-cy="creditCard" required aria-required="true" name="creditCard" type="text" placeholder="0000 &ndash; 0000 &ndash; 0000 &ndash; 0000" minlength="16" maxlength="16" />
     </label>
     <label for="CVV" id="security-code">
       <span>Security code</span>
-      <input required aria-required="true" name="CVV" autocomplete="one-time-code" inputmode="numeric" size="3" maxlength="3" type="password" placeholder="***" />
+      <input data-cy="CVV" required aria-required="true" name="CVV" autocomplete="one-time-code" inputmode="numeric" size="3" maxlength="3" type="password" placeholder="***" />
     </label>
     <label for="expDate" id="expiration-date">
       <span>Expiration date</span>
-      <input required aria-required="true" name="expDate" type="text" placeholder="MM / YY" maxlength="5" pattern="\d{2}\/\d{2}" />
+      <input data-cy="expDate" required aria-required="true" name="expDate" type="text" placeholder="MM / YY" maxlength="5" pattern="\d{2}\/\d{2}" />
     </label>
   </fieldset>
   <button data-cy="submit" type="submit">COMPLETE PURCHASE</button>
