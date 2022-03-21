@@ -3,6 +3,8 @@
 const FORM_SELECTOR = '[data-cy="order-form"]'
 const SUBMIT_BUTTON_SELECTOR = '[data-cy="submit"]'
 const ORDER_SUMMARY_SELECTOR = '[data-cy="order-summary"]'
+const ORDER_OUTPUT_SELECTOR = '[data-cy="order-output"]'
+const NEW_ORDER_BUTTON_SELECTOR = '[data-cy="new-order"]'
 
 // Fields
 const FIRST_NAME_SELECTOR = '[data-cy="firstName"]'
@@ -20,7 +22,7 @@ describe('Form Tests', () => {
     cy.visit('/')
   })
 
-  describe('Base Form Layout', () => {
+  describe('Form Layout', () => {
     it('should have a form', () => {
       cy.get(FORM_SELECTOR).should('have.length', 1)
     })
@@ -46,7 +48,7 @@ describe('Form Tests', () => {
     })
   })
 
-  describe('Form Tab Navigation', () => {
+  describe('Form Navigation', () => {
     it('should focus the first invalid input when submitting with empty fields', () => {
       cy.get(FORM_SELECTOR).get(SUBMIT_BUTTON_SELECTOR).click()
 
@@ -253,6 +255,59 @@ describe('Form Tests', () => {
           phone: '123456789',
           postalCode: '12345',
         })
+
+        expect(interception.response.body).to.eql({
+          message: 'Order successfully placed.',
+        })
+      })
+    })
+
+    describe('Successful response', () => {
+      it ('should see the correct message and be able to place a new order', () => {
+        cy.get(ORDER_OUTPUT_SELECTOR).should('contain', 'Order successfully placed.')
+        cy.get(NEW_ORDER_BUTTON_SELECTOR).should('be.visible')
+      })
+
+      it ('should show the form with empty fields', () => {
+        cy.get(FORM_SELECTOR).should('not.be.visible')
+        cy.get(NEW_ORDER_BUTTON_SELECTOR).click()
+
+        cy.get(ORDER_OUTPUT_SELECTOR).should('not.be.visible')
+        cy.get(NEW_ORDER_BUTTON_SELECTOR).should('not.be.visible')
+        cy.get(FORM_SELECTOR).should('be.visible')
+      })
+    })
+
+    describe('Unsuccessful response', () => {
+      before(() => {
+        cy.intercept('POST', '/order').as('error')
+
+        // Populate fields
+        cy.get(FORM_SELECTOR).get(FIRST_NAME_SELECTOR).type('ababc')
+        cy.get(FORM_SELECTOR).get(LAST_NAME_SELECTOR).type('bca')
+        cy.get(FORM_SELECTOR).get(EMAIL_SELECTOR).type('asds@asd.a')
+        cy.get(FORM_SELECTOR).get(COUNTRY_SELECTOR).select('RO')
+        cy.get(FORM_SELECTOR).get(POSTAL_CODE_SELECTOR).type('12345')
+        cy.get(FORM_SELECTOR).get(PHONE_NUMBER_SELECTOR).type('123456789')
+        cy.get(FORM_SELECTOR).get(CREDIT_CARD_NUMBER_SELECTOR).type('0000000000000000')
+        cy.get(FORM_SELECTOR).get(CVV_SELECTOR).type('123')
+        cy.get(FORM_SELECTOR).get(EXPIRATION_DATE_SELECTOR).type('20/02')
+
+        cy.get(FORM_SELECTOR).get(SUBMIT_BUTTON_SELECTOR).click()
+      })
+
+      it ('should show the correct message', () => {
+        cy.wait('@error').then((interception) => {
+          expect(interception.response.body).to.eql({
+            email: ['email validation failed'],
+          })
+        })
+
+        cy.get(ORDER_OUTPUT_SELECTOR).should('contain', 'Please check your input and try again.')
+      })
+
+      it ('should focus the first invalid element', () => {
+        cy.focused().should('have.attr', 'name', 'email')
       })
     })
   })

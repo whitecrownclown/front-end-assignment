@@ -79,3 +79,9 @@ main code {
   font-size: 16px;
   background: #e6e2ff;
 }
+
+.hidden {
+  /** We use important intentionally in order to override other selectors specificity */
+  display: none !important;
+  visibility: hidden !important;
+}
