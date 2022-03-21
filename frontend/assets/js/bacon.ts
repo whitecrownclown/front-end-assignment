@@ -22,7 +22,7 @@ const bacon: BaconInterface = {
   ) as HTMLElement,
 }
 
-function addMoreBacon () {
+function addMoreBacon (): void {
   const clonedBacon = bacon.template.cloneNode() as HTMLImageElement
 
   bacon.appendLocation.appendChild(clonedBacon)

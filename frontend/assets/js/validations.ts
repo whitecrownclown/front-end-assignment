@@ -3,6 +3,7 @@ const POSTAL_CODE_REGEX = /^[\d]{5}$/
 const CREDIT_CARD_REGEX = /^[\d]{16}$/
 const CVV_REGEX = /^[\d]{3}$/
 const EXPIRATION_DATE_REGEX = /^[\d]{2}\/[\d]{2}$/
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export function validateMinLength (
   value: string | number,
@@ -48,7 +49,7 @@ export function handleNameValidation (event: KeyboardEvent): void {
 export function handleEmailValidation (event: KeyboardEvent): void {
   const field = event.currentTarget as HTMLInputElement
 
-  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)
+  const isValid = EMAIL_REGEX.test(field.value)
 
   setAndReportValidationFeedback({
     field,
